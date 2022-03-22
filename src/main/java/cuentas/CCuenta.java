@@ -1,35 +1,61 @@
 package cuentas;
 
+/**
+ * Clase para con los atributos de una cuenta corriente y las operaciones que se realizan con ella.
+ * 
+ * @author Juanfran Lara
+ * @version 2.0
+ * @since 1.0
+ */
 public class CCuenta {
-
-    private String nombre;
-    private String cuenta;
-    private double saldo;
-    private double tipoInterés;
-
+    //Atributos de clase
+    private String nombre; //Nombre del titular de la cuenta
+    private String cuenta; //Codigo de la cuenta
+    private double saldo; //Saldo en euros de la cuenta
+    private double tipoInterés; //Tipo de interes de la cuenta
+    
+    //Constructor vacío
     public CCuenta()
     {
     }
-
+    
+    //Constructor CCuenta
     public CCuenta(String nom, String cue, double sal, double tipo)
     {
         nombre =nom;
         cuenta=cue;
         saldo=sal;
     }
-
+    
+    /**
+     * Consulta el estado de la cuenta y devuelve el Saldo.
+     * 
+     * @return Saldo de la cuenta.
+     */
     public double estado()
     {
         return getSaldo();
     }
-
+    
+    /**
+     * Suma la cantidad al saldo.
+     * 
+     * @param cantidad Cantidad a sumar.
+     * @throws Exception Notifica un error en caso de que la cantidad sea negativa.
+     */
     public void ingresar(double cantidad) throws Exception
     {
         if (cantidad<0)
             throw new Exception("No se puede ingresar una cantidad negativa");
         setSaldo(getSaldo() + cantidad);
     }
-
+    
+     /**
+     * Resta la cantidad introducida al saldo.
+     * 
+     * @param cantidad Cantidad a restar.
+     * @throws Exception Notifica un error en caso de que la cantidad sea negativa o no haya suficiente saldo en la cuenta.
+     */
     public void retirar(double cantidad) throws Exception
     {
         if (cantidad <= 0)

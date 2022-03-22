@@ -1,10 +1,19 @@
 package cuentas;
 
+/**
+ * Implementa el inicio del porgrama. Se crea una cuenta, se muestra su saldo actual, se retira una cantidad de dinero, y se ingresa otra.
+ * 
+ * @author Juanfran Lara
+ * @version 2.0
+ * @since 1.0
+ */
+
 public class Main {
 
     public static void main(String[] args) {
-        CCuenta cuenta1;
-        double saldoActual;
+        //Atributos locales
+        CCuenta cuenta1; //Almacena la cuenta creada
+        double saldoActual; //Almacena el saldo de la cuenta tras su consulta
 
         cuenta1 = new CCuenta("Antonio López","1000-2365-85-1230456789",2500,0);
         saldoActual = cuenta1.estado();
@@ -14,6 +23,13 @@ public class Main {
         operativa_cuenta(cuenta1, 0);
     }
 
+    
+    /**
+     * Contiene las operaciones del objeto cuenta1.
+     * @param cuenta1 Objeto de la clase CCuenta.
+     * @param cantidad parametro de tipo float.
+     */
+    
     private static void operativa_cuenta(CCuenta cuenta1, float cantidad) {
         try {
             cuenta1.retirar(2300);
